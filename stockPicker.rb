@@ -3,7 +3,7 @@
 def stockPicker(array)
 	i = 0
 	profits = []
-	p array
+	p "Prices for each day: #{array}"
 	max_nums = []
 
 	while i < array.length
@@ -12,18 +12,14 @@ def stockPicker(array)
 		i += 1
 	end
 
-	puts "profits.max = #{profits.max}"
-	puts
-	p "max_nums" + max_nums.to_s
-	puts
-	p profits.map { |e| e  }
 
-	high_prof = max_nums.max
-	puts high_prof
-	high_prof_index = max_nums.index(high_prof)
-	puts "index of max_nums highest profit = #{high_prof_index}"
-	puts (profits[high_prof].index(high_prof))
+	high_profits = max_nums.max
+	high_prof_index = max_nums.index(high_profits)
 
+
+	puts "[Best day to buy, best day to sell]"
+	[high_prof_index, array.index(high_profits + array[high_prof_index])]
+	
 		
 end
 
@@ -44,4 +40,4 @@ end
 
 
 
-p stockPicker([17,3,6,9,15,8,6,1,10])
+p stockPicker([19, 10, 6, 8, 15, 9, 6, 3, 1])
